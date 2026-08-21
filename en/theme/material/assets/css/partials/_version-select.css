@@ -67,8 +67,9 @@
   box-shadow: 0 0 0 1px var(--md-primary-fg-color);
 }
 
-/* Show only the active version's subtopic group. The active group is marked
-   server-side (is-active) so the correct group is visible before JS runs. */
+/* Only the active version's group is rendered (see partials/nav-item.html), and
+   it always carries is-active. These rules are kept as a guard so a group that
+   somehow loses the class is hidden rather than shown alongside another. */
 .md-nav__version-group {
   display: none;
 }

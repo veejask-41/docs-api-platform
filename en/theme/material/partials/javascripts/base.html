@@ -36,10 +36,6 @@
 </script>
 <!-- CookiePro Cookies Consent Notice end for wso2.com -->
 
-{% for path in config.extra_javascript %}
-<script src="{{ path | url }}"></script>
-{% endfor %}
-
 <script>
   function trackEvent(eventName, properties) {
     if (moesif) {

@@ -44,6 +44,7 @@ theme:
     text: Montserrat
   favicon: assets/images/favicon.png
   features:
+    - navigation.instant
     - navigation.path
     - navigation.top
     - content.code.copy
