@@ -758,6 +758,7 @@ nav:
                 - MCP Access Control List: ai-gateway/1.2.0/mcp-proxy/policies/mcp-acl-list.md
                 - MCP Authentication: ai-gateway/1.2.0/mcp-proxy/policies/mcp-authentication.md
                 - MCP Authorization: ai-gateway/1.2.0/mcp-proxy/policies/mcp-authorization.md
+                - MCP Rate Limit: ai-gateway/1.2.0/mcp-proxy/policies/mcp-ratelimit.md
                 - MCP Rewrite: ai-gateway/1.2.0/mcp-proxy/policies/mcp-rewrite.md
         - Real-Time AI Streaming: ai-gateway/1.2.0/streaming-responses.md
         - Deployment:
@@ -1407,6 +1408,7 @@ plugins:
         ai-gateway/mcp-proxy/policies/mcp-acl-list.md: ai-gateway/1.1.0/mcp-proxy/policies/mcp-acl-list.md
         ai-gateway/mcp-proxy/policies/mcp-authentication.md: ai-gateway/1.1.0/mcp-proxy/policies/mcp-authentication.md
         ai-gateway/mcp-proxy/policies/mcp-authorization.md: ai-gateway/1.1.0/mcp-proxy/policies/mcp-authorization.md
+        ai-gateway/mcp-proxy/policies/mcp-ratelimit.md: ai-gateway/1.2.0/mcp-proxy/policies/mcp-ratelimit.md
         ai-gateway/mcp-proxy/policies/mcp-rewrite.md: ai-gateway/1.1.0/mcp-proxy/policies/mcp-rewrite.md
         ai-gateway/mcp-proxy/quick-start-guide.md: ai-gateway/1.1.0/mcp-proxy/quick-start-guide.md
         ai-gateway/observability/logging.md: ai-gateway/1.1.0/observability/logging.md
