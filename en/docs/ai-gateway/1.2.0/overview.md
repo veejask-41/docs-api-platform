@@ -9,7 +9,6 @@ tags:
   - mcp
 author: WSO2 API Platform Documentation Team
 last_updated: 2026-08-12
-last_updated: 2026-08-31
 content_type: "concept"
 ---
 
