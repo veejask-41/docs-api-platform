@@ -779,6 +779,7 @@ nav:
             - Timeouts: ai-gateway/1.2.0/resiliency/timeouts.md
         - Observability:
             - Logging: ai-gateway/1.2.0/observability/logging.md
+            - Traffic Logging: ai-gateway/1.2.0/observability/traffic-logging.md
             - Tracing: ai-gateway/1.2.0/observability/tracing.md
         - Analytics:
             - Moesif Analytics: ai-gateway/1.2.0/analytics/moesif-analytics.md
