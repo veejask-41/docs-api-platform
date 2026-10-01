@@ -61,14 +61,14 @@ The gateway performs the selection, translation and authentication at request ti
 
 8. Click **Add provider** to put it in the table, then repeat from step 5 for any further providers.
 
-    ![Create App LLM Proxy page with three providers attached, showing the Transformer policy column with Not required, an auto-attached transformer, and Required](../../../assets/img/ai-workspace/proxy-creation/create-proxy-provider-table.png)
-
     The table shows each provider's **Provider ID** beneath its name, its **Transformer policy**, which one is **Primary**, and row **Actions**. Use the **Primary** toggle to move the primary marker to a different provider.
+
+    ![Create App LLM Proxy page with three attached providers, the Transformer policy column showing Not required, an auto-attached transformer, and Required](../../../assets/img/ai-workspace/proxy-creation/create-proxy-provider-table.png)
 
 9. Click **Create Proxy**.
 
 !!! note
-    **Create Proxy** stays disabled until every provider that requires one has a credential. Hovering the disabled button says which condition is unmet. A provider still showing **Required** in the **Transformer policy** column does *not* block creation - the proxy is created and the provider simply cannot receive traffic until you attach one.
+    **Create Proxy** stays disabled until every provider that requires one has a credential. Hovering the disabled button says which condition is unmet. A provider still showing **Required** in the **Transformer policy** column does *not* block creation. The proxy is created, and the gateway still routes to that provider - but the request arrives in the proxy's inbound format, untranslated, so the provider is likely to reject it until you attach a transformer.
 
 ## Choose the inbound interface
 
@@ -109,7 +109,7 @@ Changes are held on the page until you save, so you can adjust several providers
 
 Each provider row shows a **Provider ID** beneath the provider's name - `test-openai` in the screenshots above. That is the value an application sends to select that provider, in the header the gateway's routing policy is configured to read.
 
-A request that names no provider, or names one the proxy does not have, goes to the primary.
+A request that names no provider, or names one the proxy does not have, goes to whichever provider the routing policy names as its default. When the policy sets no default, it goes to the primary.
 
 For the routing policy itself - which header it reads, how to map header values to providers, and how to set a different default - see
 [Multi-provider routing](../../../ai-gateway/next/routing/multi-provider-routing.md).
@@ -122,14 +122,14 @@ Click **Add** in a provider's **Transformer policy** column to open the **Transf
 
 Each entry shows its source - **WSO2** for a catalogue policy, **Custom** for one built for your gateway - and its version. Clearing the category filter widens the list to every policy. Selecting a transformer opens its parameters for configuration.
 
-A transformer is recorded on the proxy only when it is attached. A provider left showing **Required** does not translate, and cannot receive traffic.
+A transformer is recorded on the proxy only when it is attached. A provider left showing **Required** still receives requests, but they arrive untranslated in the proxy's inbound format.
 
 !!! note
     Automatic matching looks for a policy named for the exact conversion - for example `openai-to-anthropic-transformer`. A provider whose template handle does not match any policy name is reported as unmatched even when a suitable transformer exists in the catalogue under a slightly different name. Pick it manually in that case.
 
 ## What needs a newer gateway
 
-A gateway at **1.2.x** reads only the older single-primary configuration. It can serve a multi-provider proxy, but not one that uses any of the following:
+A gateway at **1.2.x** serves multi-provider proxies, but reads only the older `provider` plus `additionalProviders` configuration. The capabilities added since then need a newer gateway:
 
 | Capability | Minimum gateway |
 |------------|-----------------|

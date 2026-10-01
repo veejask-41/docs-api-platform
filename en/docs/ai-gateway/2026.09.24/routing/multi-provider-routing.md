@@ -418,7 +418,7 @@ curl -k -X POST https://localhost:8443/openai-multi/chat/completions \
   -H "X-API-Key: ${PROXY_CONSUMER_KEY}" \
   -H "x-provider: anthropic" \
   -d '{
-    "model": "client-model-name",
+    "model": "claude-sonnet-4-5-20250929",
     "messages": [
       {
         "role": "user",

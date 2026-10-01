@@ -98,7 +98,7 @@ The OpenAPI specification defines the resources, or API endpoints, available thr
 
 **To import manually:**
 
-1. Go to the **Resources** tab.
+1. Go to the **Definition** tab.
 
 2. Click the **Import from file** button.
 
@@ -111,7 +111,7 @@ The OpenAPI specification defines the resources, or API endpoints, available thr
 
 ### View resources
 
-After importing, the **Resources** section displays the count and list of parsed resources. Each resource shows:
+After importing, the **Resources** panel on the **Definition** tab displays the count and list of parsed resources, and the **Overview** tab lists them too. Each resource shows:
 
 - **HTTP Method**: the HTTP method (GET, POST, PUT, DELETE, or PATCH)
 - **Resource Path**: the endpoint path, for example `/v1/chat/completions`
@@ -187,7 +187,7 @@ Resource-wise guardrails apply to **specific endpoints** only. This section list
 
 ## Save changes
 
-After making configuration changes across any tab (Provider, Resources, Security, Guardrails), click the **Save** button at the bottom-right of the page to persist your changes.
+After making configuration changes across any tab (Definition, Providers, Security, Guardrails & Policies), click the **Save** button at the bottom-right of the page to persist your changes.
 
 Use the **Cancel** button to discard all unsaved changes and revert to the last saved state.
 
