@@ -30,20 +30,11 @@ This is useful when you want to:
 - Apply proxy-level authentication, rate limits, and guardrails consistently across providers
 - Introduce provider selection and model suspension through a routing policy
 
-## Choose a Routing Strategy
+## Choose a routing strategy
 
 Choose one provider-selection strategy for each operation unless you have explicitly designed and tested the precedence between multiple routing policies.
 
-| Capability | Header router | Model round robin | Model weighted round robin |
-|------------|---------------|-------------------|----------------------------|
-| Explicit client or provider choice | Yes | No | No |
-| Selects a provider | Yes | Optional per model entry | Optional per model entry |
-| Selects and rewrites a model | No | Yes | Yes |
-| Uses the primary provider when no provider is selected | Yes | Yes | Yes |
-| Suspends a provider/model pair after `429` or `5xx` | No | Yes | Yes |
-| Weighted traffic distribution | No | No | Yes |
-| Latency-, cost-, or semantic-based routing | No | No | No |
-| Retries the failed request on another target | No | No | No |
+The strategies below are the ones a multi-provider proxy uses. For every routing policy the gateway provides, see [Routing](index.md).
 
 ### Header-based routing
 
@@ -64,7 +55,7 @@ The router has the following selection behavior:
 - Preserves a non-empty provider selection made by an earlier policy
 - Leaves the routing header on the upstream request
 
-The header router sets the selected provider's named upstream during the request-header phase, and publishes the selection as request metadata. An additional provider is reached whether or not it carries a transformer. The published selection is what lets conditional credential and transformer policies apply only what belongs to the chosen provider.
+The header router does two things. It sets the selected provider as the upstream, so the request reaches that provider whether or not a transformer is attached. It also records which provider was selected, so only that provider's credential and transformer policies are applied.
 
 ### Model round robin
 
