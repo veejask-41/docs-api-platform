@@ -36,7 +36,7 @@ The router has the following selection behavior:
 - Preserves a non-empty provider selection made by an earlier policy
 - Leaves the routing header on the upstream request
 
-The header router sets the selected provider's named upstream during the request-header phase, and publishes the selection as request metadata. An additional provider is reached whether or not it carries a transformer. The published selection is what lets conditional credential and transformer policies apply only what belongs to the chosen provider.
+The header router does two things. It sets the selected provider as the upstream, so the request reaches that provider whether or not a transformer is attached. It also records which provider was selected, so only that provider's credential and transformer policies are applied.
 
 ## Policy reference
 
