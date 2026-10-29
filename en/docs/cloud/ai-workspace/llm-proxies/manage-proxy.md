@@ -19,7 +19,7 @@ Once you create an App LLM Proxy, you can manage its configuration through the p
 !!! info "On This Page"
     **Proxy Configuration:**
 
-    - [Provider Settings](#provider-settings) - LLM service provider and authentication
+    - [Providers](#providers) - LLM service providers and authentication
     - [Resources](#resources) - OpenAPI specification and endpoints
     - [Security](#security) - Client application authentication
     - [Guardrails](#guardrails) - Content protection and policies
